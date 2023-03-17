@@ -14,41 +14,14 @@ namespace PasswordGenerator
         static void Main(string[] args)
         {
             //Обработка флагов
-            if (args.Length != 0)
-            {
-                foreach (string arg in args)
-                {
-                    if (arg[0] != '-') passwordLenght = Convert.ToInt32(args[0]);
-
-                    if (arg[0] == '-' && arg[1] != '-')
-                    {
-                        if (arg == "-u") passwordIsUpperCaseNeeded = false;
-                        if (arg == "-s") passwordIsSpecialSymbolsNeeded = false;
-                        if (arg == "-us")
-                        {
-                            passwordIsUpperCaseNeeded = false;
-                            passwordIsSpecialSymbolsNeeded = false;
-                        }
-                    }
-                    if ((arg[0] == '-') && (arg[1] == '-'))
-                    {
-                        string[] splitedArg = arg.Split('=');
-                        if (splitedArg[0] == "--lenght") passwordLenght = int.Parse(splitedArg[1]);
-                        if (splitedArg[0] == "--digits") passwordDigitsNum = int.Parse(splitedArg[1]);
-                        if (splitedArg[0] == "--letters") passwordLettersNum = int.Parse(splitedArg[1]);
-                        if (splitedArg[0] == "--uppercase") passwordIsUpperCaseNeeded = false;
-                        if (splitedArg[0] == "--special") passwordIsSpecialSymbolsNeeded = false;
-                    }
-                }
-
-            }
+            CheckFlags(args);
 
             //Проверка на корректность запрашиваемого пароля
-            if (passwordLenght < (passwordDigitsNum + passwordLettersNum))
-                throw new Exception("\n\n------------------------------------------------------------------------------------------\n !!!Ошибка!!! Количество запрашиваемых символов больше длины пароля\n------------------------------------------------------------------------------------------\n");
-            else if (!passwordIsSpecialSymbolsNeeded && (passwordDigitsNum + passwordLettersNum) != passwordLenght)
-                throw new Exception("\n\n------------------------------------------------------------------------------------------\n!!!Ошибка!!! Недостаточное кол-во символов. Включите поддержку спец символов, либо увеличьте кол-во цифр или букв\n------------------------------------------------------------------------------------------\n");
-            else password = GetPassword(passwordLenght, passwordDigitsNum, passwordLettersNum, passwordIsUpperCaseNeeded, passwordIsSpecialSymbolsNeeded);
+            if (IsPasswordDataCorrect())
+            {
+                password = GetPassword(passwordLenght, passwordDigitsNum, passwordLettersNum, passwordIsUpperCaseNeeded, passwordIsSpecialSymbolsNeeded);
+            }
+
             //Вывод результата
             Console.WriteLine($"\nPassword: {password}\n");
             Console.WriteLine($"Lenght: {passwordLenght} {(passwordLenght == 16 ? " - Значение по умолчанию" : "")}");
@@ -94,6 +67,51 @@ namespace PasswordGenerator
 
 
         }
+        //Проверка на корректность запрашиваемого пароля + получение 
+        static bool IsPasswordDataCorrect()
+        {
+            if (passwordLenght < (passwordDigitsNum + passwordLettersNum))
+                throw new Exception("!!!Ошибка!!! Количество запрашиваемых символов больше длины пароля");
+            else if (!passwordIsSpecialSymbolsNeeded && (passwordDigitsNum + passwordLettersNum) != passwordLenght)
+                throw new Exception("!!!Ошибка!!! Недостаточное кол-во символов. Включите поддержку спец символов, либо увеличьте кол-во цифр или букв");
+            else return true;
+        }
+
+        //Обработка флагов
+        static void CheckFlags(string[] args)
+        {
+            if (args.Length != 0)
+            {
+                foreach (string arg in args)
+                {
+                    if (arg[0] != '-')
+                    {
+                        passwordLenght = Convert.ToInt32(args[0]);
+                    }
+
+                    if (arg[0] == '-' && arg[1] != '-')
+                    {
+                        foreach (char letter in arg)
+                        {
+                            if (letter == 'u') passwordIsUpperCaseNeeded = true;
+                            if (letter == 's') passwordIsSpecialSymbolsNeeded = true;
+                        }
+                    }
+                    if ((arg[0] == '-') && (arg[1] == '-'))
+                    {
+                        string[] splitedArg = arg.Split('=');
+                        if (splitedArg[0] == "--lenght") passwordLenght = int.Parse(splitedArg[1]);
+                        if (splitedArg[0] == "--digits") passwordDigitsNum = int.Parse(splitedArg[1]);
+                        if (splitedArg[0] == "--letters") passwordLettersNum = int.Parse(splitedArg[1]);
+                        if (splitedArg[0] == "--uppercase") passwordIsUpperCaseNeeded = false;
+                        if (splitedArg[0] == "--special") passwordIsSpecialSymbolsNeeded = false;
+                    }
+                }
+
+            }
+        }
+
+
         //Перемешать пароль
         static string Shuffle(string password)
         {
