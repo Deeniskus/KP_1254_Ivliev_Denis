@@ -71,6 +71,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.PersonComboBox = new System.Windows.Forms.ComboBox();
             this.LoadAnswers = new System.Windows.Forms.Button();
+            this.RemoveAnswers = new System.Windows.Forms.Button();
             this.QuestionOneGroupBox.SuspendLayout();
             this.QuestionTwoGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Question4numericUpDown)).BeginInit();
@@ -405,7 +406,7 @@
             this.SaveAnswersButton.Name = "SaveAnswersButton";
             this.SaveAnswersButton.Size = new System.Drawing.Size(412, 68);
             this.SaveAnswersButton.TabIndex = 19;
-            this.SaveAnswersButton.Text = "Сохрнаить ответы";
+            this.SaveAnswersButton.Text = "Сохранить ответы";
             this.SaveAnswersButton.UseVisualStyleBackColor = true;
             this.SaveAnswersButton.Click += new System.EventHandler(this.SaveAnswersButton_Click);
             // 
@@ -545,13 +546,25 @@
             this.LoadAnswers.UseVisualStyleBackColor = true;
             this.LoadAnswers.Click += new System.EventHandler(this.LoadAnswers_Click);
             // 
+            // RemoveAnswers
+            // 
+            this.RemoveAnswers.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RemoveAnswers.Location = new System.Drawing.Point(946, 697);
+            this.RemoveAnswers.Name = "RemoveAnswers";
+            this.RemoveAnswers.Size = new System.Drawing.Size(412, 68);
+            this.RemoveAnswers.TabIndex = 24;
+            this.RemoveAnswers.Text = "Очистить БД";
+            this.RemoveAnswers.UseVisualStyleBackColor = true;
+            this.RemoveAnswers.Click += new System.EventHandler(this.RemoveAnswers_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoScrollMargin = new System.Drawing.Size(0, 50);
-            this.ClientSize = new System.Drawing.Size(1424, 881);
+            this.ClientSize = new System.Drawing.Size(1441, 881);
+            this.Controls.Add(this.RemoveAnswers);
             this.Controls.Add(this.LoadAnswers);
             this.Controls.Add(this.PersonComboBox);
             this.Controls.Add(this.AnswerGroupBox);
@@ -635,6 +648,7 @@
         private System.Windows.Forms.Label QuestionAnswer2;
         private System.Windows.Forms.ComboBox PersonComboBox;
         private System.Windows.Forms.Button LoadAnswers;
+        private System.Windows.Forms.Button RemoveAnswers;
     }
 }
 
