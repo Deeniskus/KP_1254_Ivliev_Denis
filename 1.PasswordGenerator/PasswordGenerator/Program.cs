@@ -5,7 +5,7 @@ namespace PasswordGenerator
     internal class Program
     {
         static Random random = new Random();
-        static int passwordLenght = 16;
+        static int passwordLength = 16;
         static int passwordDigitsNum = 8;
         static int passwordLettersNum = 8;
         static bool passwordIsUpperCaseNeeded = true;
@@ -19,15 +19,11 @@ namespace PasswordGenerator
             //Проверка на корректность запрашиваемого пароля
             if (IsPasswordDataCorrect())
             {
-                password = GetPassword(passwordLenght, passwordDigitsNum, passwordLettersNum, passwordIsUpperCaseNeeded, passwordIsSpecialSymbolsNeeded);
+                password = GetPassword(passwordLength, passwordDigitsNum, passwordLettersNum, passwordIsUpperCaseNeeded, passwordIsSpecialSymbolsNeeded);
             }
 
             //Вывод результата
-            Console.WriteLine($"\nPassword: {password}\n");
-            Console.WriteLine($"Lenght: {passwordLenght} {(passwordLenght == 16 ? " - Значение по умолчанию" : "")}");
-            Console.WriteLine($"Letters: {passwordLettersNum} {(passwordLettersNum == 8 ? " - Значение по умолчанию" : "")}");
-            Console.WriteLine($"Digits: {passwordDigitsNum} {(passwordDigitsNum == 8 ? " - Значение по умолчанию" : "")}");
-            Console.WriteLine($"Special Symbols: {passwordLenght - passwordDigitsNum - passwordLettersNum}");
+            Console.WriteLine(password);
         }
         //Метод по получению пароя
         static string GetPassword(int length, int digitsNum, int lettersNum, bool isUpperCaseNeeded, bool isSpecialSymbolsNeeded)
@@ -70,9 +66,9 @@ namespace PasswordGenerator
         //Проверка на корректность запрашиваемого пароля + получение 
         static bool IsPasswordDataCorrect()
         {
-            if (passwordLenght < (passwordDigitsNum + passwordLettersNum))
+            if (passwordLength < (passwordDigitsNum + passwordLettersNum))
                 throw new Exception("!!!Ошибка!!! Количество запрашиваемых символов больше длины пароля");
-            else if (!passwordIsSpecialSymbolsNeeded && (passwordDigitsNum + passwordLettersNum) != passwordLenght)
+            else if (!passwordIsSpecialSymbolsNeeded && (passwordDigitsNum + passwordLettersNum) != passwordLength)
                 throw new Exception("!!!Ошибка!!! Недостаточное кол-во символов. Включите поддержку спец символов, либо увеличьте кол-во цифр или букв");
             else return true;
         }
@@ -86,21 +82,21 @@ namespace PasswordGenerator
                 {
                     if (arg[0] != '-')
                     {
-                        passwordLenght = Convert.ToInt32(args[0]);
+                        passwordLength = Convert.ToInt32(args[0]);
                     }
 
                     if (arg[0] == '-' && arg[1] != '-')
                     {
                         foreach (char letter in arg)
                         {
-                            if (letter == 'u') passwordIsUpperCaseNeeded = true;
-                            if (letter == 's') passwordIsSpecialSymbolsNeeded = true;
+                            if (letter == 'u') passwordIsUpperCaseNeeded = false;
+                            if (letter == 's') passwordIsSpecialSymbolsNeeded = false;
                         }
                     }
                     if ((arg[0] == '-') && (arg[1] == '-'))
                     {
                         string[] splitedArg = arg.Split('=');
-                        if (splitedArg[0] == "--lenght") passwordLenght = int.Parse(splitedArg[1]);
+                        if (splitedArg[0] == "--length") passwordLength = int.Parse(splitedArg[1]);
                         if (splitedArg[0] == "--digits") passwordDigitsNum = int.Parse(splitedArg[1]);
                         if (splitedArg[0] == "--letters") passwordLettersNum = int.Parse(splitedArg[1]);
                         if (splitedArg[0] == "--uppercase") passwordIsUpperCaseNeeded = false;
@@ -115,9 +111,9 @@ namespace PasswordGenerator
         //Перемешать пароль
         static string Shuffle(string password)
         {
-            for (int i = 0; i < passwordLenght; i++)
+            for (int i = 0; i < passwordLength; i++)
             {
-                int randomPos = GetRandomNumber(0, passwordLenght - 1);
+                int randomPos = GetRandomNumber(0, passwordLength - 1);
                 char temp = password[randomPos];
                 password = password.Remove(randomPos, 1).Insert(0, temp.ToString());
             }
