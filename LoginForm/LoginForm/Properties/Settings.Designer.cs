@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RegistrationForm.Properties
+namespace LoginForm.Properties
 {
 
 
