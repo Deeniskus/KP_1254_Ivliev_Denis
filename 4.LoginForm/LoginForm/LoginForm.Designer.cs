@@ -1,6 +1,6 @@
 ﻿namespace LoginForm
 {
-    partial class Form1
+    partial class LoginForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.EnterAsGuestBTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // EnterBTN
@@ -65,7 +66,7 @@
             this.LoginTB.Name = "LoginTB";
             this.LoginTB.Size = new System.Drawing.Size(140, 31);
             this.LoginTB.TabIndex = 2;
-            this.LoginTB.Text = "admin";
+            this.LoginTB.Text = "AdminAdmin";
             // 
             // label1
             // 
@@ -92,17 +93,30 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // Form1
+            // EnterAsGuestBTN
+            // 
+            this.EnterAsGuestBTN.AutoSize = true;
+            this.EnterAsGuestBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EnterAsGuestBTN.Location = new System.Drawing.Point(76, 284);
+            this.EnterAsGuestBTN.Name = "EnterAsGuestBTN";
+            this.EnterAsGuestBTN.Size = new System.Drawing.Size(141, 50);
+            this.EnterAsGuestBTN.TabIndex = 5;
+            this.EnterAsGuestBTN.Text = "Войти как гость";
+            this.EnterAsGuestBTN.UseVisualStyleBackColor = true;
+            this.EnterAsGuestBTN.Click += new System.EventHandler(this.EnterAsGuestBTN_Click);
+            // 
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(287, 356);
+            this.Controls.Add(this.EnterAsGuestBTN);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LoginTB);
             this.Controls.Add(this.PasswordTB);
             this.Controls.Add(this.EnterBTN);
-            this.Name = "Form1";
+            this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Авторизация";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -119,6 +133,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button EnterAsGuestBTN;
     }
 }
 

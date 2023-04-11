@@ -1,0 +1,13 @@
+C:\Users\Denchick\Desktop\Git\4.LoginForm\LoginForm\obj\Debug\LoginForm.csproj.AssemblyReference.cache
+C:\Users\Denchick\Desktop\Git\4.LoginForm\LoginForm\obj\Debug\LoginForm.csproj.SuggestedBindingRedirects.cache
+C:\Users\Denchick\Desktop\Git\4.LoginForm\LoginForm\obj\Debug\LoginForm.Properties.Resources.resources
+C:\Users\Denchick\Desktop\Git\4.LoginForm\LoginForm\obj\Debug\LoginForm.csproj.GenerateResource.cache
+C:\Users\Denchick\Desktop\Git\4.LoginForm\LoginForm\obj\Debug\LoginForm.csproj.CoreCompileInputs.cache
+C:\Users\Denchick\Desktop\Git\4.LoginForm\LoginForm\obj\Debug\LoginForm.ProfileForm.resources
+C:\Users\Denchick\Desktop\Git\4.LoginForm\LoginForm\bin\Debug\LoginForm.exe.config
+C:\Users\Denchick\Desktop\Git\4.LoginForm\LoginForm\bin\Debug\LoginForm.exe
+C:\Users\Denchick\Desktop\Git\4.LoginForm\LoginForm\bin\Debug\LoginForm.pdb
+C:\Users\Denchick\Desktop\Git\4.LoginForm\LoginForm\obj\Debug\LoginForm.exe
+C:\Users\Denchick\Desktop\Git\4.LoginForm\LoginForm\obj\Debug\LoginForm.pdb
+C:\Users\Denchick\Desktop\Git\4.LoginForm\LoginForm\obj\Debug\LoginForm.LoginForm.resources
+C:\Users\Denchick\Desktop\Git\4.LoginForm\LoginForm\obj\Debug\LoginForm.CreateNewAccountForm.resources

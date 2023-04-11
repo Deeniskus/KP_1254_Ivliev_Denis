@@ -1,22 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Principal;
 using System.Windows.Forms;
 
 namespace LoginForm
 {
-    public partial class Form1 : Form
+    public partial class LoginForm : Form
     {
+        
 
-        //Нулевой пользователь
-        static Persons person = new Persons("admin", "admin", "Админ", 99);
         //Список пользователей
-        static List<Persons> persons = new List<Persons>() { person };
-        //Пермишены
-        static EditSelfPerm editSelfPerm = new EditSelfPerm();
-        //Список пермишенов
-        public static List<Permissions> permissions = new List<Permissions>() { editSelfPerm };
+        static List<Account> accounts = new List<Account>() { Account.AdminAccount, Account.account1, Account.account2 };
 
-        public Form1()
+        public LoginForm()
         {
             InitializeComponent();
         }
@@ -24,14 +20,14 @@ namespace LoginForm
         private void EnterBTN_Click(object sender, EventArgs e)
         {
             //Если нашли совпадение по логину и паролю, создаём новое окно со всеми полями объекта
-            foreach (Persons person in persons)
+            foreach (Account account in accounts)
             {
-                if (person != null)
+                if (account != null)
                 {
-                    if (person.login.Equals(LoginTB.Text))
+                    if (account.login.Equals(LoginTB.Text) && account.password.Equals(PasswordTB.Text))
                     {
                         //Новый объект профайл формы
-                        ProfileForm profileForm = new ProfileForm(person.login, person.password, person.name, person.age, permissions);
+                        ProfileForm profileForm = new ProfileForm(account.id, account.login, account.password, account.firstName, account.lastName, account.birthDate, account.permissions);
                         //Прячем текущее окно
                         this.Hide();
                         //Показываем окно профайл формы
@@ -47,6 +43,13 @@ namespace LoginForm
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void EnterAsGuestBTN_Click(object sender, EventArgs e)
+        {
+            ProfileForm profileForm = new ProfileForm(-1, "Guest", "", "Гость", "", DateTime.Today, Permissions.Guest);
+            this.Hide();
+            profileForm.Show();
         }
     }
 }
