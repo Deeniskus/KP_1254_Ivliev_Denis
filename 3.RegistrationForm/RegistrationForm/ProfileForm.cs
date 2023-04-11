@@ -5,12 +5,12 @@ using System.Windows.Forms;
 
 namespace RegistrationForm
 {
-    public partial class Form1 : Form
+    public partial class ProfileForm : Form
     {
         public static List<Account> accounts = new List<Account>();
-        public Form1()
+        public ProfileForm()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
 
         private void GeneratePasswordBTN_Click(object sender, EventArgs e)

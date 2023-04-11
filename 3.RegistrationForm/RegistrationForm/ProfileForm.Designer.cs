@@ -1,6 +1,6 @@
 ﻿namespace RegistrationForm
 {
-    partial class Form1
+    partial class ProfileForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -143,7 +143,7 @@
             this.DigitsNumNUD.Size = new System.Drawing.Size(137, 26);
             this.DigitsNumNUD.TabIndex = 15;
             this.DigitsNumNUD.Value = new decimal(new int[] {
-            8,
+            5,
             0,
             0,
             0});
@@ -155,7 +155,7 @@
             this.LettersNumNUD.Size = new System.Drawing.Size(137, 26);
             this.LettersNumNUD.TabIndex = 14;
             this.LettersNumNUD.Value = new decimal(new int[] {
-            8,
+            5,
             0,
             0,
             0});
@@ -264,7 +264,7 @@
             this.AccountsLB.TabIndex = 9;
             this.AccountsLB.SelectedIndexChanged += new System.EventHandler(this.AccountsLB_SelectedIndexChanged);
             // 
-            // Form1
+            // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -279,7 +279,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.FirstNameTB);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "ProfileForm";
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

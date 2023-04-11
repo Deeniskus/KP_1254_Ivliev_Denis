@@ -10,6 +10,8 @@ namespace PasswordGenerator
         static int passwordLettersNum = 8;
         static bool passwordIsUpperCaseNeeded = true;
         static bool passwordIsSpecialSymbolsNeeded = true;
+        static bool defaultDigitsNum = true;
+        static bool defaultLettersNum = true;
         static string password;
         static void Main(string[] args)
         {
@@ -97,11 +99,40 @@ namespace PasswordGenerator
                     {
                         string[] splitedArg = arg.Split('=');
                         if (splitedArg[0] == "--length") passwordLength = int.Parse(splitedArg[1]);
-                        if (splitedArg[0] == "--digits") passwordDigitsNum = int.Parse(splitedArg[1]);
-                        if (splitedArg[0] == "--letters") passwordLettersNum = int.Parse(splitedArg[1]);
+                        if (splitedArg[0] == "--digits")
+                        {
+                            passwordDigitsNum = int.Parse(splitedArg[1]);
+                            defaultDigitsNum = false;
+                        }
+                        if (splitedArg[0] == "--letters")
+                        {
+                            passwordLettersNum = int.Parse(splitedArg[1]);
+                            defaultLettersNum = false;
+                        }
                         if (splitedArg[0] == "--uppercase") passwordIsUpperCaseNeeded = false;
                         if (splitedArg[0] == "--special") passwordIsSpecialSymbolsNeeded = false;
                     }
+                }
+                if (defaultDigitsNum && defaultLettersNum)
+                {
+                    if (passwordLength / 2 == 0)
+                    {
+                        passwordDigitsNum = passwordLength / 2;
+                        passwordLettersNum = passwordLength / 2;
+                    }
+                    else
+                    {
+                        passwordDigitsNum = passwordLength / 2;
+                        passwordLettersNum = passwordLength / 2 + 1;
+                    }
+                    
+                }
+                if (!defaultLettersNum  &&  defaultDigitsNum) {
+                    passwordDigitsNum = passwordLength - passwordLettersNum;
+                }
+                if (!defaultDigitsNum && defaultLettersNum)
+                {
+                    passwordLettersNum = passwordLength - passwordDigitsNum;
                 }
 
             }
