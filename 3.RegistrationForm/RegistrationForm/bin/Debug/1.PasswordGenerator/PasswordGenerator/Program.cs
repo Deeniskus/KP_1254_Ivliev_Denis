@@ -16,6 +16,8 @@ namespace PasswordGenerator
         static void Main(string[] args)
         {
             //Обработка флагов
+            int a = 12 / 2;
+
             CheckFlags(args);
 
             //Проверка на корректность запрашиваемого пароля
@@ -115,7 +117,7 @@ namespace PasswordGenerator
                 }
                 if (defaultDigitsNum && defaultLettersNum)
                 {
-                    if (passwordLength / 2 == 0)
+                    if (passwordLength % 2 == 0)
                     {
                         passwordDigitsNum = passwordLength / 2;
                         passwordLettersNum = passwordLength / 2;
