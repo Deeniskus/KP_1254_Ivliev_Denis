@@ -2,6 +2,7 @@
 {
     internal class SeeAdminsPerm : Permissions
     {
+        //Чистим список, и и заполняем заново с админами. Да, не эффективно, но мне было лень в профайл форме там кое-что внизу делать
         public override void ApplyPermission(ProfileForm profileForm)
         {
             profileForm.AccountsLB.Items.Clear();

@@ -10,7 +10,7 @@ namespace LoginForm
         {
 
         }
-        //Константы списков пермишенов
+        //Константы списки пермишенов
         public static List<Permissions> Admin = new List<Permissions>() { new EditSelfPerm(), new SeeUsersPerm(), new EditOthersPerm(), new SeeAdminsPerm(), new SeeLoginPerm(), new SeePasswordPerm(), new CreateNewAccountsPerm()};
         public static List<Permissions> DefaultUser = new List<Permissions>() { new EditSelfPerm(), new SeeUsersPerm(), new SeeAdminsPerm(), new SeeLoginPerm()};
         public static List<Permissions> Guest = new List<Permissions>() { new SeeUsersPerm() };

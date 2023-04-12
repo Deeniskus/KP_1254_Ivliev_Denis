@@ -8,6 +8,7 @@ namespace LoginForm
 {
     internal class SeeUsersPerm : Permissions
     {
+        //Проходимся по каждому аккаунту и если его нет в LB, и это не админ, добавляем
         public override void ApplyPermission(ProfileForm profileForm)
         {
             foreach (Account account in Account.Accounts)

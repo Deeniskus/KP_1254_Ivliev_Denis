@@ -9,9 +9,6 @@ namespace LoginForm
     {
         
 
-        //Список пользователей
-        static List<Account> accounts = new List<Account>() { Account.AdminAccount, Account.account1, Account.account2 };
-
         public LoginForm()
         {
             InitializeComponent();
@@ -20,7 +17,7 @@ namespace LoginForm
         private void EnterBTN_Click(object sender, EventArgs e)
         {
             //Если нашли совпадение по логину и паролю, создаём новое окно со всеми полями объекта
-            foreach (Account account in accounts)
+            foreach (Account account in Account.Accounts)
             {
                 if (account != null)
                 {
@@ -47,6 +44,7 @@ namespace LoginForm
 
         private void EnterAsGuestBTN_Click(object sender, EventArgs e)
         {
+            //Входим как гость
             ProfileForm profileForm = new ProfileForm(-1, "Guest", "", "Гость", "", DateTime.Today, Permissions.Guest);
             this.Hide();
             profileForm.Show();

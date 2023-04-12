@@ -15,6 +15,7 @@ namespace LoginForm
 
         private void AcceptBTN_Click(object sender, EventArgs e)
         {
+            //Проверяем радио батн
             List<Permissions> permissions;
             if (AdminRB.Checked)
             {
@@ -25,7 +26,7 @@ namespace LoginForm
                 permissions = Permissions.DefaultUser;
             }
 
-
+            //Создаём аккаунт на основе TB'ов
             Account account = new Account(Account.Accounts.Count,
                 OPFirstNameTB.Text,
                 OPLastNameTB.Text,
@@ -33,7 +34,9 @@ namespace LoginForm
                 OPPasswordTB.Text,
                 OPBirthDatePicker.Value,
                 permissions);
+            //Добавляем в общий список аккаунтов
             Account.Accounts.Add(account);
+            //Добавляем в LB профайл формы
             profileForm.AccountsLB.Items.Add(account.GetTitle());
             Close();
         }

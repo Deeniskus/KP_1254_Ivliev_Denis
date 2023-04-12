@@ -23,6 +23,7 @@ namespace LoginForm
         //Список аккаунтов
         public static List<Account> Accounts = new List<Account>() { AdminAccount, account1, account2 };
 
+        //Словарь
         public static Dictionary<string, string> alphabetDict = new Dictionary<string, string>
         {
             ["а"] = "a",
@@ -87,16 +88,7 @@ namespace LoginForm
             [" "] = " ",
             ["Ч"] = "Ch"
         };
-        //Перевод транслитом
-        public static string Translate(string word)
-        {
-            string translatedWord = string.Empty;
-            foreach (char letter in word)
-            {
-                translatedWord += alphabetDict[letter.ToString()];
-            }
-            return translatedWord;
-        }
+        //Конструктор
         public Account(int id, string firstName, string lastName, string login, string password, DateTime birthDate, List<Permissions> permissions)
         {
             this.id = id;
@@ -108,6 +100,18 @@ namespace LoginForm
             this.permissions = permissions;
         }
 
+        //Перевод транслитом
+        public static string Translate(string word)
+        {
+            string translatedWord = string.Empty;
+            foreach (char letter in word)
+            {
+                translatedWord += alphabetDict[letter.ToString()];
+            }
+            return translatedWord;
+        }
+        
+        //Получение имени + фамилии
         public string GetTitle()
         {
             return firstName + " " + lastName;

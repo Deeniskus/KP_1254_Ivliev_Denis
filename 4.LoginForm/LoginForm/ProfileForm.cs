@@ -10,21 +10,28 @@ namespace LoginForm
         public static Account previousAccount;
         public static Account loggedAccount;
 
+        //На вход конструктора получаем текущего залогированного пользователя
         public ProfileForm(int id, string login, string password, string firstName, string lastName, DateTime birthDate, List<Permissions> permissions)
         {
+           
             InitializeComponent();
+
+            //Заполняем ЛК
             FirstNameTB.Text = firstName;
             LastNameTB.Text = lastName;
             PasswordTB.Text = password;
             BirthDatePicker.Value = birthDate;
             LoginTB.Text = login;
 
+            //Запоминаем залогированный акк
             loggedAccount = new Account(id, firstName, lastName, login, password, birthDate, permissions);
             currentSelectedAccount = loggedAccount;
 
-
             //Проходимся по каждому пермишену и вызваем метод Apply
-            ApplyPermissions(permissions);
+            foreach (var permission in permissions)
+            {
+                permission.ApplyPermission(this);
+            }
         }
 
 
@@ -41,6 +48,7 @@ namespace LoginForm
                     {
                         currentSelectedAccount = account;
 
+                        //Заполняем другого пользователя
                         OtherPersonGP.Text = account.GetTitle();
                         OPFirstName.Text = account.firstName;
                         OPLastName.Text = account.lastName;
@@ -51,15 +59,6 @@ namespace LoginForm
                 }
             }
         }
-        private void ApplyPermissions(List<Permissions> permissions)
-        {
-            foreach (var permission in permissions)
-            {
-                permission.ApplyPermission(this);
-            }
-        }
-
-
 
         private void GenerateLoginBTN_Click(object sender, EventArgs e)
         {
@@ -73,11 +72,12 @@ namespace LoginForm
         }
         private void ProfileForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Hide();
+            Hide(); //Чтобы не забывалась информация в окне
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
         }
-
+        
+        //Редактировать другого пользователя
         private void EditOPBTN_Click(object sender, EventArgs e)
         {
 
@@ -128,16 +128,19 @@ namespace LoginForm
             currentSelectedAccount.password = OPPasswordTB.Text;
             currentSelectedAccount.birthDate = OPBirthDatePicker.Value;
 
+            //Те самые строки, почему в SeeAdminPerm код не эффективные (просто чтобы тут он был красивый)
             Account.Accounts[currentSelectedAccount.id] = currentSelectedAccount;
             AccountsLB.Items[currentSelectedAccount.id] = currentSelectedAccount.GetTitle();
         }
 
+        //Форма создания аккаунта
         private void CreateNewAccountBTN_Click(object sender, EventArgs e)
         {
             CreateNewAccountForm createNewAccountForm = new CreateNewAccountForm(this);
             createNewAccountForm.ShowDialog();
         }
 
+        //Редактировать свой ЛК
         private void SaveChangesBTN_Click(object sender, EventArgs e)
         {
             loggedAccount.firstName = FirstNameTB.Text;
