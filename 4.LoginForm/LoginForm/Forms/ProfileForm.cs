@@ -16,6 +16,7 @@ namespace LoginForm
            
             InitializeComponent();
 
+
             //Заполняем ЛК
             FirstNameTB.Text = firstName;
             LastNameTB.Text = lastName;
@@ -32,6 +33,11 @@ namespace LoginForm
             {
                 permission.ApplyPermission(this);
             }
+
+            //Выбираем выбранным первый :)
+            AccountsLB.SelectedIndex = 0;
+
+
         }
 
 

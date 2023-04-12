@@ -345,7 +345,7 @@
             this.OtherPersonGP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.OtherPersonGP.Location = new System.Drawing.Point(785, 145);
             this.OtherPersonGP.Name = "OtherPersonGP";
-            this.OtherPersonGP.Size = new System.Drawing.Size(293, 192);
+            this.OtherPersonGP.Size = new System.Drawing.Size(322, 192);
             this.OtherPersonGP.TabIndex = 17;
             this.OtherPersonGP.TabStop = false;
             // 
@@ -354,7 +354,7 @@
             this.OPBirthDatePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.OPBirthDatePicker.Location = new System.Drawing.Point(140, 86);
             this.OPBirthDatePicker.Name = "OPBirthDatePicker";
-            this.OPBirthDatePicker.Size = new System.Drawing.Size(116, 26);
+            this.OPBirthDatePicker.Size = new System.Drawing.Size(176, 26);
             this.OPBirthDatePicker.TabIndex = 22;
             this.OPBirthDatePicker.Value = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.OPBirthDatePicker.Visible = false;
@@ -362,7 +362,7 @@
             // OPPasswordTB
             // 
             this.OPPasswordTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OPPasswordTB.Location = new System.Drawing.Point(79, 148);
+            this.OPPasswordTB.Location = new System.Drawing.Point(79, 141);
             this.OPPasswordTB.Name = "OPPasswordTB";
             this.OPPasswordTB.Size = new System.Drawing.Size(150, 26);
             this.OPPasswordTB.TabIndex = 31;
@@ -371,7 +371,7 @@
             // OPLoginTB
             // 
             this.OPLoginTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OPLoginTB.Location = new System.Drawing.Point(67, 120);
+            this.OPLoginTB.Location = new System.Drawing.Point(67, 113);
             this.OPLoginTB.Name = "OPLoginTB";
             this.OPLoginTB.Size = new System.Drawing.Size(150, 26);
             this.OPLoginTB.TabIndex = 30;
@@ -399,7 +399,7 @@
             // 
             this.OPPassword.AutoSize = true;
             this.OPPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OPPassword.Location = new System.Drawing.Point(79, 149);
+            this.OPPassword.Location = new System.Drawing.Point(79, 142);
             this.OPPassword.Name = "OPPassword";
             this.OPPassword.Size = new System.Drawing.Size(47, 20);
             this.OPPassword.TabIndex = 28;
@@ -410,7 +410,7 @@
             // 
             this.OPLogin.AutoSize = true;
             this.OPLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OPLogin.Location = new System.Drawing.Point(67, 123);
+            this.OPLogin.Location = new System.Drawing.Point(67, 116);
             this.OPLogin.Name = "OPLogin";
             this.OPLogin.Size = new System.Drawing.Size(47, 20);
             this.OPLogin.TabIndex = 27;
@@ -451,7 +451,7 @@
             // 
             this.OPPasswordLabel.AutoSize = true;
             this.OPPasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OPPasswordLabel.Location = new System.Drawing.Point(6, 149);
+            this.OPPasswordLabel.Location = new System.Drawing.Point(6, 142);
             this.OPPasswordLabel.Name = "OPPasswordLabel";
             this.OPPasswordLabel.Size = new System.Drawing.Size(67, 20);
             this.OPPasswordLabel.TabIndex = 23;
@@ -462,7 +462,7 @@
             // 
             this.OPLoginLabel.AutoSize = true;
             this.OPLoginLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OPLoginLabel.Location = new System.Drawing.Point(6, 123);
+            this.OPLoginLabel.Location = new System.Drawing.Point(6, 116);
             this.OPLoginLabel.Name = "OPLoginLabel";
             this.OPLoginLabel.Size = new System.Drawing.Size(55, 20);
             this.OPLoginLabel.TabIndex = 22;
@@ -599,7 +599,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1125, 588);
+            this.ClientSize = new System.Drawing.Size(1123, 588);
             this.Controls.Add(this.CreateNewAccountBTN);
             this.Controls.Add(this.SaveOPChangesBTN);
             this.Controls.Add(this.EditOPBTN);

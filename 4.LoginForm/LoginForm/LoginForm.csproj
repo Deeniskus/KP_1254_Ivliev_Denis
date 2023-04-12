@@ -47,43 +47,43 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
-    <Compile Include="CreateNewAccountForm.cs">
+    <Compile Include="Forms\CreateNewAccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateNewAccountForm.Designer.cs">
+    <Compile Include="Forms\CreateNewAccountForm.Designer.cs">
       <DependentUpon>CreateNewAccountForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateNewAccountsPerm.cs" />
-    <Compile Include="EditOthersPerm.cs" />
-    <Compile Include="EditSelfPerm.cs" />
-    <Compile Include="LoginForm.cs">
+    <Compile Include="Permissions\CreateNewAccountsPerm.cs" />
+    <Compile Include="Permissions\EditOthersPerm.cs" />
+    <Compile Include="Permissions\EditSelfPerm.cs" />
+    <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PasswordGenerator.cs" />
-    <Compile Include="Permissions.cs" />
-    <Compile Include="ProfileForm.cs">
+    <Compile Include="Permissions\Permissions.cs" />
+    <Compile Include="Forms\ProfileForm.cs">
       <SubType>Form</SubType>
       <CustomToolNamespace>LoginForm</CustomToolNamespace>
     </Compile>
-    <Compile Include="ProfileForm.Designer.cs">
+    <Compile Include="Forms\ProfileForm.Designer.cs">
       <DependentUpon>ProfileForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SeeAdminsPerm.cs" />
-    <Compile Include="SeeLoginPerm.cs" />
-    <Compile Include="SeePasswordPerm.cs" />
-    <Compile Include="SeeUsersPerm.cs" />
-    <EmbeddedResource Include="CreateNewAccountForm.resx">
+    <Compile Include="Permissions\SeeAdminsPerm.cs" />
+    <Compile Include="Permissions\SeeLoginPerm.cs" />
+    <Compile Include="Permissions\SeePasswordPerm.cs" />
+    <Compile Include="Permissions\SeeUsersPerm.cs" />
+    <EmbeddedResource Include="Forms\CreateNewAccountForm.resx">
       <DependentUpon>CreateNewAccountForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
+    <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProfileForm.resx">
+    <EmbeddedResource Include="Forms\ProfileForm.resx">
       <DependentUpon>ProfileForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
