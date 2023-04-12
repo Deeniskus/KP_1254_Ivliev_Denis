@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LoginForm
 {
-    internal class SeeUsersPerm : Permissions
+    internal class SeeUsersPerm : Permission
     {
         //Проходимся по каждому аккаунту и если его нет в LB, и это не админ, добавляем
         public override void ApplyPermission(ProfileForm profileForm)
@@ -15,7 +15,7 @@ namespace LoginForm
             {
                 if (!profileForm.AccountsLB.Items.Contains(account.GetTitle())) 
                 {
-                    if (account.permissions != Permissions.Admin)
+                    if (account.permissions != Permission.Admin)
                     {
                         profileForm.AccountsLB.Items.Add(account.GetTitle());
                     }

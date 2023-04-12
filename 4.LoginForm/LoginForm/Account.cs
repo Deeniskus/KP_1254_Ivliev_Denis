@@ -11,17 +11,16 @@ namespace LoginForm
         public string login;
         public string password;
         public DateTime birthDate;
-        public List<Permissions> permissions;
+        public List<Permission> permissions;
 
         //Нулевой пользователь (Админ)
-        public static Account AdminAccount = new Account(0, "Админ", "Админ", "AdminAdmin", "admin", new DateTime(1800, 1, 1), Permissions.Admin);
+        public static Account AdminAccount = new Account(0, "Админ", "Админ", "AdminAdmin", "admin", new DateTime(1800, 1, 1), Permission.Admin);
 
         //Тестовые аккаунты
-        public static Account account1 = new Account(1, "Денис", "Ивлиев", "DenisIvliev", "123", new DateTime(2004, 8, 23), Permissions.DefaultUser);
-        public static Account account2 = new Account(2, "Александр", "Кузнецов", "AleksandrKuznetsov", "123", new DateTime(2004, 8, 30), Permissions.DefaultUser);
+        public static Account ZeroAccount = new Account(1, "Денис", "Ивлиев", "DenisIvliev", "123", new DateTime(2004, 8, 23), Permission.DefaultUser);
 
         //Список аккаунтов
-        public static List<Account> Accounts = new List<Account>() { AdminAccount, account1, account2 };
+        public static List<Account> Accounts = new List<Account>() { AdminAccount, ZeroAccount};
 
         //Словарь
         public static Dictionary<string, string> alphabetDict = new Dictionary<string, string>
@@ -88,8 +87,8 @@ namespace LoginForm
             [" "] = " ",
             ["Ч"] = "Ch"
         };
-        //Конструктор
-        public Account(int id, string firstName, string lastName, string login, string password, DateTime birthDate, List<Permissions> permissions)
+        //Конструктор c паролем
+        public Account(int id, string firstName, string lastName, string login, string password, DateTime birthDate, List<Permission> permissions)
         {
             this.id = id;
             this.firstName = firstName;
@@ -99,6 +98,9 @@ namespace LoginForm
             this.birthDate = birthDate;
             this.permissions = permissions;
         }
+
+        //Конструктор пустой
+        public Account() { }
 
         //Перевод транслитом
         public static string Translate(string word)
@@ -115,6 +117,12 @@ namespace LoginForm
         public string GetTitle()
         {
             return firstName + " " + lastName;
+        }
+
+        //Получение логина + пароля
+        public string GetData()
+        {
+            return login + " " + password;
         }
     }
 }

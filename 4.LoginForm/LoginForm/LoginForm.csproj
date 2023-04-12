@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="AdditionalHelpers\JsonHelper.cs" />
     <Compile Include="Forms\CreateNewAccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,8 +63,8 @@
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PasswordGenerator.cs" />
-    <Compile Include="Permissions\Permissions.cs" />
+    <Compile Include="AdditionalHelpers\PasswordHelper.cs" />
+    <Compile Include="Permissions\Permission.cs" />
     <Compile Include="Forms\ProfileForm.cs">
       <SubType>Form</SubType>
       <CustomToolNamespace>LoginForm</CustomToolNamespace>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LoginForm
 {
-    internal class SeeLoginPerm : Permissions
+    internal class SeeLoginPerm : Permission
     {
         public override void ApplyPermission(ProfileForm profileForm)
         {

@@ -1,6 +1,6 @@
 ﻿namespace LoginForm
 {
-    internal class SeeAdminsPerm : Permissions
+    internal class SeeAdminsPerm : Permission
     {
         //Чистим список, и и заполняем заново с админами. Да, не эффективно, но мне было лень в профайл форме там кое-что внизу делать
         public override void ApplyPermission(ProfileForm profileForm)

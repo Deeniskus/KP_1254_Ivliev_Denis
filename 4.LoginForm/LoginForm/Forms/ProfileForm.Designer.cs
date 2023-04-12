@@ -74,12 +74,14 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.DeleteUser = new System.Windows.Forms.Button();
             this.PasswordGeneratorGB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DigitsNumNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LettersNumNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PasswordLengthNUD)).BeginInit();
             this.OtherPersonGP.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -586,6 +588,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.DeleteUser);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.groupBox2.Location = new System.Drawing.Point(416, 32);
@@ -594,6 +597,18 @@
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Пользователи";
+            // 
+            // DeleteUser
+            // 
+            this.DeleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.DeleteUser.Location = new System.Drawing.Point(369, 364);
+            this.DeleteUser.Name = "DeleteUser";
+            this.DeleteUser.Size = new System.Drawing.Size(140, 49);
+            this.DeleteUser.TabIndex = 26;
+            this.DeleteUser.Text = "Удалить пользователя";
+            this.DeleteUser.UseVisualStyleBackColor = true;
+            this.DeleteUser.Visible = false;
+            this.DeleteUser.Click += new System.EventHandler(this.DeleteUser_Click);
             // 
             // ProfileForm
             // 
@@ -630,6 +645,7 @@
             this.OtherPersonGP.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -683,6 +699,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         public System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
+        public System.Windows.Forms.Button DeleteUser;
     }
 }
 

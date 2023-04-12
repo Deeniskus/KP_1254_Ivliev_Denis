@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LoginForm
 {
-    internal class PasswordGenerator
+    internal class PasswordHelper
     {
         public static string GetPassword(ProfileForm profileForm)
         {

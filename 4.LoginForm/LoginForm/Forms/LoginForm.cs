@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LoginForm.AdditionalHelpers;
+using System;
 using System.Collections.Generic;
 using System.Security.Principal;
 using System.Windows.Forms;
@@ -11,6 +12,8 @@ namespace LoginForm
 
         public LoginForm()
         {
+            Account.Accounts = JsonHelper.DeserializeUserInfo("UsersInfo.json");
+            JsonHelper.DeserializePasswords("UsersPasswords.json");
             InitializeComponent();
         }
 
@@ -45,7 +48,7 @@ namespace LoginForm
         private void EnterAsGuestBTN_Click(object sender, EventArgs e)
         {
             //Входим как гость
-            ProfileForm profileForm = new ProfileForm(-1, "Guest", "", "Гость", "", DateTime.Today, Permissions.Guest);
+            ProfileForm profileForm = new ProfileForm(-1, "Guest", "", "Гость", "", DateTime.Today, Permission.Guest);
             this.Hide();
             profileForm.Show();
         }

@@ -1,6 +1,9 @@
-﻿using System;
+﻿using LoginForm.AdditionalHelpers;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace LoginForm
 {
@@ -11,7 +14,7 @@ namespace LoginForm
         public static Account loggedAccount;
 
         //На вход конструктора получаем текущего залогированного пользователя
-        public ProfileForm(int id, string login, string password, string firstName, string lastName, DateTime birthDate, List<Permissions> permissions)
+        public ProfileForm(int id, string login, string password, string firstName, string lastName, DateTime birthDate, List<Permission> permissions)
         {
            
             InitializeComponent();
@@ -74,14 +77,9 @@ namespace LoginForm
         private void GeneratePasswordBTN_Click(object sender, EventArgs e)
         {
             //Генирируем пароль
-            PasswordTB.Text = PasswordGenerator.GetPassword(this);
+            PasswordTB.Text = PasswordHelper.GetPassword(this);
         }
-        private void ProfileForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Hide(); //Чтобы не забывалась информация в окне
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
-        }
+        
         
         //Редактировать другого пользователя
         private void EditOPBTN_Click(object sender, EventArgs e)
@@ -157,6 +155,39 @@ namespace LoginForm
 
             Account.Accounts[loggedAccount.id] = loggedAccount;
             AccountsLB.Items[loggedAccount.id] = loggedAccount.GetTitle();
+        }
+        private void ProfileForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Hide(); //Чтобы не забывалась информация в окне
+            File.WriteAllText("UsersInfo.json", JsonHelper.Serialize(Account.Accounts)[0]);
+            File.WriteAllText("UsersPasswords.json", JsonHelper.Serialize(Account.Accounts)[1]);
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+        }
+
+        private void DeleteUser_Click(object sender, EventArgs e)
+        {
+            if (!currentSelectedAccount.GetData().Equals(loggedAccount.GetData()))
+            {
+                Account.Accounts.Remove(currentSelectedAccount);
+                AccountsLB.Items.Clear();
+                foreach (Account account in Account.Accounts)
+                {
+                    AccountsLB.Items.Add(account.GetTitle());
+                    OtherPersonGP.Text = "";
+                    OPFirstName.Text = "";
+                    OPLastName.Text = "";
+                    OPLogin.Text = "";
+                    OPPassword.Text = "";
+                    OPBirthDate.Text = "";
+                }
+            }
+            else
+            {
+                MessageBox.Show("Нельзя удалить себя", "Ошибка",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LoginForm.AdditionalHelpers;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -16,14 +17,14 @@ namespace LoginForm
         private void AcceptBTN_Click(object sender, EventArgs e)
         {
             //Проверяем радио батн
-            List<Permissions> permissions;
+            List<Permission> permissions;
             if (AdminRB.Checked)
             {
-                permissions = Permissions.Admin;
+                permissions = Permission.Admin;
             }
             else
             {
-                permissions = Permissions.DefaultUser;
+                permissions = Permission.DefaultUser;
             }
 
             //Создаём аккаунт на основе TB'ов
@@ -36,6 +37,8 @@ namespace LoginForm
                 permissions);
             //Добавляем в общий список аккаунтов
             Account.Accounts.Add(account);
+
+
             //Добавляем в LB профайл формы
             profileForm.AccountsLB.Items.Add(account.GetTitle());
             Close();

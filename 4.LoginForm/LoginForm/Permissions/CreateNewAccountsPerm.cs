@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace LoginForm
 {
-    internal class CreateNewAccountsPerm : Permissions
+    internal class CreateNewAccountsPerm : Permission
     {
         public override void ApplyPermission(ProfileForm profileForm)
         {
             profileForm.CreateNewAccountBTN.Visible = true;
+            profileForm.DeleteUser.Visible = true;
         }
     }
 }

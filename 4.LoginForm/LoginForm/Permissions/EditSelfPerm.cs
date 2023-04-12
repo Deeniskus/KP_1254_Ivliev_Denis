@@ -1,7 +1,7 @@
 ﻿namespace LoginForm
 {
     //Пермишен на редактирование себя
-    internal class EditSelfPerm : Permissions
+    internal class EditSelfPerm : Permission
     {
         //Переписываем метод Enable
         public override void ApplyPermission(ProfileForm profileForm)

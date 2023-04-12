@@ -1,6 +1,6 @@
 ﻿namespace LoginForm
 {
-    internal class EditOthersPerm : Permissions
+    internal class EditOthersPerm : Permission
     {
         //Проверяет текущего залогиненого пользователя с текущим выбранным, если есть пирмишн на редактирование, то разрешает редактировать
 
